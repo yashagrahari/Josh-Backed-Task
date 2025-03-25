@@ -67,9 +67,37 @@ python manage.py runserver
 - **Request Body:**
 ```json
 {
-    "user_ids": [1, 2, 3]
+    "user_ids": [3, 4]
 }
 ```
+- **Response:**
+```json
+{
+    "message": "Task assigned to 2 users",
+    "task": {
+        "id": 2,
+        "name": "Task 2 - Prepare Demo",
+        "description": "This is a task to configure DB",
+        "created_at": "2025-03-25T18:25:41.776952Z",
+        "completed_at": null,
+        "task_type": "development",
+        "status": "not_started",
+        "assigned_users": [
+            {
+                "id": 3,
+                "username": "vaibhavsingh",
+                "email": ""
+            },
+            {
+                "id": 4,
+                "username": "AnandChow",
+                "email": ""
+            }
+        ]
+    }
+}
+```
+
 
 ### Get Tasks for a User
 - **URL:** `/api/users/<user_id>/tasks/`
@@ -125,8 +153,3 @@ python manage.py runserver
 ## Test Credentials
 - **Admin Username:** yashagrahari
 - **Admin Password:** Yash@123
-
-## Running Tests
-```bash
-python manage.py test
-```
